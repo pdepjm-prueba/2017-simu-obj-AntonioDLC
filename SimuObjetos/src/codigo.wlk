@@ -35,7 +35,7 @@ class Capataz inherits Empleado{
 	}
 	
 	override method realizar(tarea){
-		
+		super(subordinados.findOrDefault({e=>e.experiencia()>self.experiencia()}, self))
 	}
 }
 
