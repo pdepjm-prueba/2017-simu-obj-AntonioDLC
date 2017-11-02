@@ -19,7 +19,7 @@ class Empleado{
 		stamina += fruta.energia()
 	}
 	method experiencia(){
-		return tareasRealizadas.sizeof() + tareasRealizadas.sum({t=>t.dificultad()})
+		return tareasRealizadas.sizeof() + tareasRealizadas.sum({t=>t.dificultad(raza)})
 	}
 	method fuerza() = (stamina/2 + 2 + rol.fuerzaExtra())*raza.factorDeFuerza()
 	method realizar(tarea){
@@ -27,9 +27,23 @@ class Empleado{
 	}
 }
 
+class Capataz inherits Empleado{
+	const subordinados
+	
+	constructor(_rol, _raza, subord) = super(_rol, _raza){
+		subordinados = subord
+	}
+	
+	override method realizar(tarea){
+		
+	}
+}
+
 object ciclope{
 	method factorDeFuerza() = 0.5
+	method factorDeAmenaza() = 2
 }
 object biciclope{
 	method factorDeFuerza() = 1
+	method factorDeAmenaza() = 1
 }
