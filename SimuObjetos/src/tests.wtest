@@ -2,6 +2,6 @@
 
 test "testX" {
 
-	assert.that(true)
+	assert.that(flase)
 
 }
